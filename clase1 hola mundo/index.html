@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- tenemos que mandar a llamar el cdn de vue.js-->
+    <script src="https://unpkg.com/vue@next"></script>
+    <title>Document</title>
+    <style>
+        ul {
+          list-style-type: none;
+          margin: 0;
+          padding: 0;
+        }
+        
+        li {
+          display: inline;
+          background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+
+        }
+        li a{
+            color: white;
+        }
+        </style>
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">hola mundo</a></li>
+            <li><a href="renderizar.html">renderizar</a></li>
+            <li><a href="v-bind.html">atributo v-bind</a></li>
+            <li><a href="">v-if v-else</a></li>
+            <li><a href="">v-for</a></li>
+        </ul>
+    </nav>
+
+    <div id="app">
+        <h1>{{titulo}}</h1>
+    </div>
+    <!-- aqui esta que mandamos a llamar es el main donde esta el vue -->
+    <script src="main.js"></script>
+    <!-- tenemos que montar la alpliacaion con un "app.moubted" -->
+    <script>
+        /* const mounted =  es un nombre que no nostros quieramos inventar */
+        /* app.mounted = es la contante que nosotros en el archivo de main.js */
+        /* (#app) = es el id que tenemos en el el div principal */
+        const mountedApp = app.mount('#app');
+    </script>
+</body>
+
+</html>
