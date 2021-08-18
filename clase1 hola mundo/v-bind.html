@@ -36,19 +36,8 @@
 </head>
 
 <body>
-    <nav>
-        <ul>
-            <li><a href="index.html">hola mundo</a></li>
-            <li><a href="renderizar.html">renderizar</a></li>
-            <li><a href="v-bind.html">atributo v-bind</a></li>
-            <li><a href="ifelse.html">v-if v-else</a></li>
-            <li><a href="vfor.html">v-for</a></li>
-            <li><a href="eventoClick.html">Agregar con boton</a></li>
-            <li><a href="clasdinamico.html">Class Dinamico</a></li>
-        </ul>
-    </nav>
-
     <div id="app">
+        <menu-header></menu-header>
         <h1>{{titulo}}</h1>
         <!-- para los atributos de enlaces se usa v-bind de la disguiente manera -->
         <!-- esta propiedad de uiliza para todo aquello que tiene enlace como imagenes, stilos, clases -->
@@ -58,6 +47,7 @@
     </div>
     <!-- aqui esta que mandamos a llamar es el main donde esta el vue -->
     <script src="main.js"></script>
+    <script src="components/MenuHeader.js"></script>
     <!-- tenemos que montar la alpliacaion con un "app.moubted" -->
     <script>
         /* const mounted =  es un nombre que no nostros quieramos inventar */

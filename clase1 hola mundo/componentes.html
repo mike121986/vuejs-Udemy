@@ -5,6 +5,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <!-- para esta practica necesitamos usar bootstrap -->
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+     integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
     <!-- tenemos que mandar a llamar el cdn de vue.js-->
     <script src="https://unpkg.com/vue@next"></script>
     <title>Document</title>
@@ -36,17 +40,24 @@
 </head>
 
 <body>
+    
     <div id="app">
         <menu-header></menu-header>
-        <h1>{{titulo}}</h1>
+        
+        <h1>componenetes</h1>
+        <!-- en este caso haremos un coimponene para el footer  -->
+        <footer-banco />
     </div>
+
     <!-- aqui esta que mandamos a llamar es el main donde esta el vue -->
     <script src="main.js"></script>
+    <!-- debemos mandar a llamar al archivo que tiene el componente "es importante que este este despues del main.js y antes de const mountedApp para evitar errores" -->
     <script src="components/MenuHeader.js"></script>
-    <!-- tenemos que montar la alpliacaion con un "app.moubted" -->
+    <script src="components/Footer.js"></script>
+    <!-- tenemos que montar la alpliacaion con un "app.mount" -->
     <script>
         /* const mounted =  es un nombre que no nostros quieramos inventar */
-        /* app.mounted = es la contante que nosotros en el archivo de main.js */
+        /* app.mount = es la contante que nosotros en el archivo de main.js */
         /* (#app) = es el id que tenemos en el el div principal */
         const mountedApp = app.mount('#app');
     </script>
