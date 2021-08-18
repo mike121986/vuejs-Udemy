@@ -15,7 +15,8 @@
             padding: 0;
         }
 
-        li {
+        li,
+        button {
             display: inline;
             background-color: #4CAF50;
             /* Green */
@@ -29,6 +30,11 @@
             margin: 4px 2px;
             cursor: pointer;
 
+        }
+
+        button:disabled {
+            cursor: no-drop;
+            background-color: #80b482
         }
 
         li a {
@@ -52,14 +58,21 @@
 
     <div id="app">
         <h1>{{titulo}}</h1>
-        <h2>MIS SERVICIOS DISPONIBLES</h2>
-        <!-- en este caso usaremos vfor para recorrer un array que hemos declarado en el main.js para ello pintaremos con una lista de html -->
-        <ul>
-            <!-- podemos escribir v-for="item in servicios" que es una forma simplificada pero cuando usemos array con idex unico debemos escribir asi para identificar cada uno de los items
-             -->
-            <li v-for="(item, index) in servicios" :key="index">{{index+1}}-{{item}}</li>
-        </ul>
+        <h2 v-if="estado">CUENTA ACTIVA</h2>
+        <h2 v-else>CUENTA DESACTIVADA</h2>
+        <!-- para hacer este ejercicio debemo tener el objeto de catidad -->
+        <!-- vamos hacer que se aumente de 100 en 100 con eventos en vejs -->
+        <h2 v-if="cantidad>600">cantidad:${{cantidad}}</h2>
+        <h2 v-else-if="cantidad<=600 && cantidad>0">cantidad:$<span style="color:red">{{cantidad}}</span></h2>
+        <h2 v-else>SIN SALDO {{cantidad}}</h2>
+        <!-- EVENTO CLICK -->
+        <!-- para hacer que se aumente debemos trabajer con metods en em main.js
+        V-ON:CLICK sirve para obtener un objeto que nosotros crearmos en el metod de main.js 
+    de igual manera que v-bind podemos usar un atajo el v-on que se con "@click"-->
+        <button v-on:click="agergarSaldo">agregar saldo</button>
 
+        <!-- ahora vamos a hacer que se diminuya el saldo con orto metodo que se llama "disminuirSaldo"  es lo mismo qeu agregar saldo-->
+        <button @click="disminuirSaldo" :disabled="desactivar">disminuir saldo</button>
     </div>
     <!-- aqui esta que mandamos a llamar es el main donde esta el vue -->
     <script src="main.js"></script>
