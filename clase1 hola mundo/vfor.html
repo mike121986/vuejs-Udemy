@@ -10,29 +10,31 @@
     <title>Document</title>
     <style>
         ul {
-          list-style-type: none;
-          margin: 0;
-          padding: 0;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
         }
-        
+
         li {
-          display: inline;
-          background-color: #4CAF50; /* Green */
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
+            display: inline;
+            background-color: #4CAF50;
+            /* Green */
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
 
         }
-        li a{
+
+        li a {
             color: white;
         }
-        </style>
+    </style>
 </head>
 
 <body>
@@ -48,11 +50,14 @@
 
     <div id="app">
         <h1>{{titulo}}</h1>
-        <!-- para los atributos de enlaces se usa v-bind de la disguiente manera -->
-        <!-- esta propiedad de uiliza para todo aquello que tiene enlace como imagenes, stilos, clases -->
-        <a v-bind:href="enlace">ir a enlace con v-bind</a><br>
-        <!-- o lo podemos usar usando solo los dos puntos -->
-        <a :href="enlace">ir a enlace con v-bind(usando solo los dos puntos)</a>
+        <h2>MIS SERVICIOS DISPONIBLES</h2>
+        <!-- en este caso usaremos vfor para recorrer un array que hemos declarado en el main.js para ello pintaremos con una lista de html -->
+        <ul>
+            <!-- podemos escribir v-for="item in servicios" que es una forma simplificada pero cuando usemos array con idex unico debemos escribir asi para identificar cada uno de los items
+             -->
+            <li v-for="(item, index) in servicios" :key="index">{{index+1}}-{{item}}</li>
+        </ul>
+
     </div>
     <!-- aqui esta que mandamos a llamar es el main donde esta el vue -->
     <script src="main.js"></script>

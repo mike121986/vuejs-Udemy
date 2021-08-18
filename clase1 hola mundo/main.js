@@ -6,7 +6,9 @@ const app = Vue.createApp({
         return {
             titulo:'este es un hola mundo con vue js',
             cantidad: 1000,
-            enlace: 'http://ticdwem.com'
+            enlace: 'http://ticdwem.com',
+            estado:false,
+            servicios:['tranferencias','pagos','cheques']
         }
     },
 })

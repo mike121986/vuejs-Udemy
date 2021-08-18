@@ -48,11 +48,21 @@
 
     <div id="app">
         <h1>{{titulo}}</h1>
-        <!-- para los atributos de enlaces se usa v-bind de la disguiente manera -->
-        <!-- esta propiedad de uiliza para todo aquello que tiene enlace como imagenes, stilos, clases -->
-        <a v-bind:href="enlace">ir a enlace con v-bind</a><br>
-        <!-- o lo podemos usar usando solo los dos puntos -->
-        <a :href="enlace">ir a enlace con v-bind(usando solo los dos puntos)</a>
+        <!-- usamo v-iif si necesitamos hacer una condicional, en este caso estamos poniendo el compnenete estado en false o true para mostrar o no mostrar la cuenta  -->
+        <h2 v-if="estado">cuenta activa</h2>
+        <!-- si usamos v-else no toma en cuenta el primer componente y busca un else si lo encuentr lo muestra
+        aqui no es necesario poner el igual y nombre de estado ya que este viene arriba -->
+        <h2 v-else>Cuenta desactivada</h2>
+
+        <!-- jugemnos con la cantidad -->
+        <!-- si la cantidad es mayor a 500 mostramos la cantidad en color negro -->
+        <h2 v-if="cantidad>500">CANTIDAD: ${{cantidad}}</h2>
+        <!-- o la cantidad es menor o igual a 500 pero mayuor que cero usamos V-ELSE-IF -->
+        <h2 v-else-if="cantidad<=500 && cantidad>0">
+            CANTIDAD:<span style="color:red">${{cantidad}}</span>
+        </h2>
+        <h2 v-else><span style="color:red">SIN CANTIDAD</span></h2>
+
     </div>
     <!-- aqui esta que mandamos a llamar es el main donde esta el vue -->
     <script src="main.js"></script>
