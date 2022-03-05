@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue</title>
+
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>{{titulo}}</h1>
+        <!-- podemos hacer comnparaciones 
+        <h2>{{cantidad >= 1000 ? "es mayor o igual a mil":"es menor a mil"}}</h2>-->
+        <h2>Mi saldo es: {{cantidad}}</h2>
+        <!-- ponemos un enlace -->
+        <!-- para usar vuejs en atributos debemos usar v-bind por que si no marca un error -->
+        <!-- este esta mal 
+        <a href="{{enlace}}">ir a enlace</a>-->
+
+        <!-- se pueden usar v-bind:href o solo se puede usar los dos puntos ":" -->
+        <a v-bind:href="enlace" target="_blank">Ir a enlace</a>
+        <hr>
+            <!-- visualiaamos los atos booleanos, como siempre no funciona v-else sin el v-if-->
+            <h2 v-if="estado">Cuenta activa</h2>
+            <h2 v-else>CUENTA DESACTIVADA</h2>
+
+            <!-- vamos a colocar colores a la cantidad: si es igual o menor a 500 pintamos los 
+                datos en rojo y la cantidad, si la cantidad es igual a cero pintamos el cero 
+                con una leyenda aque diga "en banca rota", si es mayour que 500 solo pintamos
+                el valor
+                
+                CON ESTE EJERCICIO ESTAMOS PREACTICANDO EL V-IF
+            -->
+            <h2 v-if="cantidad>500">Cantidad: {{cantidad}}</h2>
+            <h2 v-else-if="cantidad <= 500 && cantidad > 0">
+                Cantidad: 
+                <span style="color:red">
+                    {{cantidad}}
+                </span>
+            </h2>
+            <h2 v-else>Sin Saldo: {{cantidad}}</h2>
+        <hr>
+            <h2>Mis servicios</h2>
+            <ul>
+                <li v-for="(item,index) in servicios" :key="index">{{index+1}}-{{item}}</li>
+            </ul>
+        <hr>
+            Evento click
+            <br>
+            <br>
+           <!--  la abrebiartura es @click -->
+            <button v-on:click="agregarSaldo">Agregar Saldo</button>
+            <button @click="dismnuirSaldo(750)" :disabled="desacticar">Disminuir Saldo</button>
+
+            <!-- usaremos el vfor para iterar un array que le estamos enviando desde la data -->
+    </div>
+
+    <script src="main.js"></script>
+    <script>
+        /* creasmos una constante y mandamos a llamar a la constante que creamos en el main.js
+        que en este caso es "app" y ponesmos una funcion que se llama "mount" y ponemos el id 
+        que declaramos en el div "app" 
+        
+        la funcion mount siempre debe de estar debajo de nuestro archivo main.js de lo contrario no servirta
+        */
+        const mountedApp = app.mount('#app');
+    </script>
+</body>
+</html>
