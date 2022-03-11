@@ -34,4 +34,13 @@ const app = Vue.createApp({
             this.cantidad = this.cantidad - valor
         }
     },
+    computed:{
+        /* propiedad de las propiedades computadas es que siempre se deben retornar algo */
+        colorCantidad(){
+            return this.cantidad > 500 ? 'text-success':'text-danger'
+        },
+        mayusculasTexto(){
+            return this.titulo.toUpperCase();
+        }
+    }
 })
